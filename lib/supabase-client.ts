@@ -2,10 +2,11 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { Database } from '@/types/supabase'
 
 export const createSupabaseClient = () => {
-  // 환경변수가 없으면 null 반환
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  try {
+    // createClientComponentClient는 자동으로 환경 변수를 처리함
+    return createClientComponentClient<Database>()
+  } catch (error) {
+    console.error('Failed to create Supabase client:', error)
     return null
   }
-  
-  return createClientComponentClient<Database>()
 }

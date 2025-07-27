@@ -138,6 +138,11 @@ export default function CareerForm({ careerId, onSuccess }: CareerFormProps) {
       return
     }
 
+    if (!supabase) {
+      setError('데이터베이스 연결에 문제가 있습니다.')
+      return
+    }
+
     setLoading(true)
     setError('')
 
@@ -192,6 +197,16 @@ export default function CareerForm({ careerId, onSuccess }: CareerFormProps) {
     } finally {
       setLoading(false)
     }
+  }
+
+  if (!supabase) {
+    return (
+      <div className="text-center py-8">
+        <div className="text-gray-400 text-4xl mb-4">⚠️</div>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">서비스 연결 오류</h3>
+        <p className="text-gray-600">데이터베이스 연결에 문제가 있습니다. 잠시 후 다시 시도해주세요.</p>
+      </div>
+    )
   }
 
   return (

@@ -31,7 +31,7 @@ export default function CareerManageClient() {
   }, [user])
 
   const loadCareers = async () => {
-    if (!user) return
+    if (!user || !supabase) return
 
     try {
       setLoading(true)
@@ -53,7 +53,7 @@ export default function CareerManageClient() {
   }
 
   const deleteCareer = async (id: string) => {
-    if (!user || !confirm('정말로 이 경력 정보를 삭제하시겠습니까?')) return
+    if (!user || !supabase || !confirm('정말로 이 경력 정보를 삭제하시겠습니까?')) return
 
     try {
       const { error } = await supabase
@@ -101,6 +101,16 @@ export default function CareerManageClient() {
       <div className="text-center py-12">
         <div className="loading-spinner mx-auto"></div>
         <p className="mt-4 text-gray-600">로딩 중...</p>
+      </div>
+    )
+  }
+
+  if (!supabase) {
+    return (
+      <div className="text-center py-12">
+        <div className="text-gray-400 text-4xl mb-4">⚠️</div>
+        <h3 className="text-lg font-semibold text-gray-900 mb-2">서비스 연결 오류</h3>
+        <p className="text-gray-600 mb-4">데이터베이스 연결에 문제가 있습니다. 잠시 후 다시 시도해주세요.</p>
       </div>
     )
   }
