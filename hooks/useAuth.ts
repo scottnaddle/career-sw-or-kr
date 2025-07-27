@@ -11,6 +11,21 @@ export const useAuth = () => {
   const [loading, setLoading] = useState(true)
   const supabase = createSupabaseClient()
 
+  // Supabase 클라이언트가 없으면 빈 객체 반환
+  if (!supabase) {
+    return {
+      user: null,
+      profile: null,
+      loading: false,
+      signUp: async () => { throw new Error('Supabase not configured') },
+      signIn: async () => { throw new Error('Supabase not configured') },
+      signOut: async () => { throw new Error('Supabase not configured') },
+      resetPassword: async () => { throw new Error('Supabase not configured') },
+      updatePassword: async () => { throw new Error('Supabase not configured') },
+      updateProfile: async () => { throw new Error('Supabase not configured') }
+    }
+  }
+
   useEffect(() => {
     // 현재 세션 확인
     const getSession = async () => {

@@ -1,0 +1,63 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[context.production.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[context.deploy-preview.environment]
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Headers for security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://career.sw.or.kr"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+# Redirects for legacy HTML files
+[[redirects]]
+  from = "/career.html"
+  to = "/career"
+  status = 301
+
+[[redirects]]
+  from = "/system.html"
+  to = "/system"
+  status = 301
+
+[[redirects]]
+  from = "/apply.html"
+  to = "/apply"
+  status = 301
+
+[[redirects]]
+  from = "/news.html"
+  to = "/news"
+  status = 301
+
+[[redirects]]
+  from = "/help.html"
+  to = "/help"
+  status = 301
+
+# SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
