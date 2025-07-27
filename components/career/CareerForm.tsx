@@ -24,7 +24,12 @@ type CareerFormData = {
   }[]
 }
 
-export default function CareerForm({ careerId }: { careerId?: string }) {
+interface CareerFormProps {
+  careerId?: string | null
+  onSuccess?: () => void
+}
+
+export default function CareerForm({ careerId, onSuccess }: CareerFormProps) {
   const { user } = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -176,6 +181,11 @@ export default function CareerForm({ careerId }: { careerId?: string }) {
       reset()
       setTechnologies([])
       setProjects([])
+      
+      // 성공 콜백 호출
+      if (onSuccess) {
+        onSuccess()
+      }
     } catch (err) {
       console.error('경력 정보 저장 오류:', err)
       setError('경력 정보 저장에 실패했습니다.')
@@ -185,105 +195,125 @@ export default function CareerForm({ careerId }: { careerId?: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="career-form">
-      <h2>{careerId ? '경력 정보 수정' : '경력 정보 등록'}</h2>
-
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       {error && (
-        <div className="error-message">
+        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md">
           {error}
         </div>
       )}
 
-      <div className="form-section">
-        <h3>기본 정보</h3>
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900">기본 정보</h3>
         
-        <div className="form-group">
-          <label htmlFor="company_name">회사명 *</label>
+        <div>
+          <label htmlFor="company_name" className="form-label">
+            회사명 <span className="text-red-500">*</span>
+          </label>
           <input
             type="text"
             id="company_name"
+            className="form-input"
             {...register('company_name', { required: '회사명을 입력해주세요.' })}
             disabled={loading}
           />
           {errors.company_name && (
-            <span className="error-text">{errors.company_name.message}</span>
+            <p className="form-error">{errors.company_name.message}</p>
           )}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="business_number">사업자번호</label>
+        <div>
+          <label htmlFor="business_number" className="form-label">
+            사업자번호
+          </label>
           <input
             type="text"
             id="business_number"
+            className="form-input"
             {...register('business_number')}
             disabled={loading}
           />
         </div>
 
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="start_date">입사일 *</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="start_date" className="form-label">
+              입사일 <span className="text-red-500">*</span>
+            </label>
             <input
               type="date"
               id="start_date"
+              className="form-input"
               {...register('start_date', { required: '입사일을 입력해주세요.' })}
               disabled={loading}
             />
             {errors.start_date && (
-              <span className="error-text">{errors.start_date.message}</span>
+              <p className="form-error">{errors.start_date.message}</p>
             )}
           </div>
 
-          <div className="form-group">
-            <label htmlFor="end_date">퇴사일</label>
+          <div>
+            <label htmlFor="end_date" className="form-label">
+              퇴사일
+            </label>
             <input
               type="date"
               id="end_date"
+              className="form-input"
               {...register('end_date')}
-              disabled={loading || (document.getElementById('is_current') as HTMLInputElement)?.checked}
+              disabled={loading}
             />
           </div>
         </div>
 
-        <div className="form-group checkbox-group">
-          <label>
-            <input
-              type="checkbox"
-              id="is_current"
-              {...register('is_current')}
-              disabled={loading}
-            />
+        <div className="flex items-center">
+          <input
+            type="checkbox"
+            id="is_current"
+            className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
+            {...register('is_current')}
+            disabled={loading}
+          />
+          <label htmlFor="is_current" className="ml-2 block text-sm text-gray-900">
             현재 재직 중
           </label>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="position">직책/직급 *</label>
+        <div>
+          <label htmlFor="position" className="form-label">
+            직책/직급 <span className="text-red-500">*</span>
+          </label>
           <input
             type="text"
             id="position"
+            className="form-input"
             {...register('position', { required: '직책/직급을 입력해주세요.' })}
             disabled={loading}
           />
           {errors.position && (
-            <span className="error-text">{errors.position.message}</span>
+            <p className="form-error">{errors.position.message}</p>
           )}
         </div>
 
-        <div className="form-group">
-          <label htmlFor="department">부서</label>
+        <div>
+          <label htmlFor="department" className="form-label">
+            부서
+          </label>
           <input
             type="text"
             id="department"
+            className="form-input"
             {...register('department')}
             disabled={loading}
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="job_category">직무 분야 *</label>
+        <div>
+          <label htmlFor="job_category" className="form-label">
+            직무 분야 <span className="text-red-500">*</span>
+          </label>
           <select
             id="job_category"
+            className="form-input"
             {...register('job_category', { required: '직무 분야를 선택해주세요.' })}
             disabled={loading}
           >
@@ -296,40 +326,47 @@ export default function CareerForm({ careerId }: { careerId?: string }) {
             <option value="management">관리</option>
           </select>
           {errors.job_category && (
-            <span className="error-text">{errors.job_category.message}</span>
+            <p className="form-error">{errors.job_category.message}</p>
           )}
         </div>
       </div>
 
-      <div className="form-section">
-        <h3>직무 내용</h3>
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900">직무 내용</h3>
         
-        <div className="form-group">
-          <label htmlFor="job_description">직무 설명 *</label>
+        <div>
+          <label htmlFor="job_description" className="form-label">
+            직무 설명 <span className="text-red-500">*</span>
+          </label>
           <textarea
             id="job_description"
+            className="form-input"
             {...register('job_description', { required: '직무 설명을 입력해주세요.' })}
             rows={5}
             disabled={loading}
           />
           {errors.job_description && (
-            <span className="error-text">{errors.job_description.message}</span>
+            <p className="form-error">{errors.job_description.message}</p>
           )}
         </div>
       </div>
 
-      <div className="form-section">
-        <h3>기술 스택</h3>
+      <div className="space-y-4">
+        <h3 className="text-lg font-semibold text-gray-900">기술 스택</h3>
         
-        <div className="form-group">
-          <label htmlFor="tech-input">기술 추가</label>
-          <div className="tech-input-group">
+        <div>
+          <label htmlFor="tech-input" className="form-label">
+            기술 추가
+          </label>
+          <div className="flex gap-2">
             <input
               type="text"
               id="tech-input"
+              className="form-input flex-1"
               value={techInput}
               onChange={(e) => setTechInput(e.target.value)}
               disabled={loading}
+              placeholder="예: React, TypeScript, Node.js"
               onKeyDown={(e) => {
                 if (e.key === 'Enter') {
                   e.preventDefault()
@@ -341,19 +378,21 @@ export default function CareerForm({ careerId }: { careerId?: string }) {
               type="button"
               onClick={addTechnology}
               disabled={loading}
+              className="btn-secondary"
             >
               추가
             </button>
           </div>
           
-          <div className="tech-tags">
+          <div className="flex flex-wrap gap-2 mt-3">
             {technologies.map((tech, index) => (
-              <span key={index} className="tech-tag">
+              <span key={index} className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-primary-100 text-primary-800">
                 {tech}
                 <button
                   type="button"
                   onClick={() => removeTechnology(tech)}
                   disabled={loading}
+                  className="ml-2 text-primary-600 hover:text-primary-800"
                 >
                   ×
                 </button>
@@ -363,35 +402,48 @@ export default function CareerForm({ careerId }: { careerId?: string }) {
         </div>
       </div>
 
-      <div className="form-section">
-        <h3>프로젝트</h3>
-        
-        <button
-          type="button"
-          onClick={addProject}
-          disabled={loading}
-          className="add-project-btn"
-        >
-          프로젝트 추가
-        </button>
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h3 className="text-lg font-semibold text-gray-900">프로젝트</h3>
+          <button
+            type="button"
+            onClick={addProject}
+            disabled={loading}
+            className="btn-secondary"
+          >
+            프로젝트 추가
+          </button>
+        </div>
         
         {projects.map((project, index) => (
-          <div key={index} className="project-form">
-            <h4>프로젝트 {index + 1}</h4>
+          <div key={index} className="border border-gray-200 rounded-lg p-4 space-y-4">
+            <div className="flex items-center justify-between">
+              <h4 className="font-medium text-gray-900">프로젝트 {index + 1}</h4>
+              <button
+                type="button"
+                onClick={() => removeProject(index)}
+                disabled={loading}
+                className="btn-danger btn-sm"
+              >
+                제거
+              </button>
+            </div>
             
-            <div className="form-group">
-              <label>프로젝트명</label>
+            <div>
+              <label className="form-label">프로젝트명</label>
               <input
                 type="text"
+                className="form-input"
                 value={project.name}
                 onChange={(e) => updateProject(index, 'name', e.target.value)}
                 disabled={loading}
               />
             </div>
             
-            <div className="form-group">
-              <label>설명</label>
+            <div>
+              <label className="form-label">설명</label>
               <textarea
+                className="form-input"
                 value={project.description}
                 onChange={(e) => updateProject(index, 'description', e.target.value)}
                 rows={3}
@@ -399,63 +451,65 @@ export default function CareerForm({ careerId }: { careerId?: string }) {
               />
             </div>
             
-            <div className="form-row">
-              <div className="form-group">
-                <label>시작일</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="form-label">시작일</label>
                 <input
                   type="date"
+                  className="form-input"
                   value={project.start_date}
                   onChange={(e) => updateProject(index, 'start_date', e.target.value)}
                   disabled={loading}
                 />
               </div>
               
-              <div className="form-group">
-                <label>종료일</label>
+              <div>
+                <label className="form-label">종료일</label>
                 <input
                   type="date"
+                  className="form-input"
                   value={project.end_date || ''}
                   onChange={(e) => updateProject(index, 'end_date', e.target.value)}
                   disabled={loading}
                 />
               </div>
             </div>
-            
-            <button
-              type="button"
-              onClick={() => removeProject(index)}
-              disabled={loading}
-              className="remove-project-btn"
-            >
-              프로젝트 제거
-            </button>
           </div>
         ))}
       </div>
 
-      <div className="form-actions">
+      <div className="flex justify-between pt-6">
+        <div>
+          {careerId && (
+            <button
+              type="button"
+              onClick={() => {
+                reset()
+                setTechnologies([])
+                setProjects([])
+              }}
+              disabled={loading}
+              className="btn-outline"
+            >
+              초기화
+            </button>
+          )}
+        </div>
+        
         <button
           type="submit"
           disabled={loading}
-          className="submit-btn"
+          className="btn-primary flex items-center"
         >
-          {loading ? '저장 중...' : (careerId ? '수정하기' : '등록하기')}
+          {loading ? (
+            <>
+              <div className="loading-spinner-sm mr-2"></div>
+              저장 중...
+            </>
+          ) : (
+            careerId ? '수정하기' : '등록하기'
+          )}
         </button>
-        
-        {careerId && (
-          <button
-            type="button"
-            onClick={() => {
-              reset()
-              setTechnologies([])
-              setProjects([])
-            }}
-            disabled={loading}
-            className="reset-btn"
-          >
-            초기화
-          </button>
-        )}
       </div>
     </form>
   )

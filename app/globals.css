@@ -17,27 +17,199 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200;
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors duration-200;
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
   }
   
   .form-input {
-    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 disabled:bg-gray-100 disabled:cursor-not-allowed;
   }
   
   .form-label {
     @apply block text-sm font-medium text-gray-700 mb-1;
   }
+
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-error {
+    @apply text-red-600 text-sm mt-1;
+  }
+
+  .error-message {
+    @apply bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-md text-sm;
+  }
+
+  .success-message {
+    @apply bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-md text-sm;
+  }
+
+  .info-message {
+    @apply bg-blue-50 border border-blue-200 text-blue-800 px-4 py-3 rounded-md text-sm;
+  }
   
   .card {
     @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
   }
+
+  .card-header {
+    @apply border-b border-gray-200 pb-4 mb-4;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold text-gray-900 mb-2;
+  }
+
+  .page-description {
+    @apply text-lg text-gray-600;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold text-gray-900 mb-4;
+  }
+
+  .auth-container {
+    @apply min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8;
+  }
+
+  .auth-form {
+    @apply max-w-md w-full space-y-8;
+  }
+
+  .auth-card {
+    @apply bg-white py-8 px-6 shadow rounded-lg;
+  }
+
+  .auth-header {
+    @apply text-center mb-6;
+  }
+
+  .auth-title {
+    @apply text-3xl font-extrabold text-gray-900;
+  }
+
+  .auth-subtitle {
+    @apply mt-2 text-sm text-gray-600;
+  }
+
+  .auth-links {
+    @apply mt-6 text-center space-y-2;
+  }
+
+  .auth-link {
+    @apply text-primary-600 hover:text-primary-500 text-sm font-medium;
+  }
+
+  .login-form {
+    @apply space-y-6;
+  }
   
   .loading-spinner {
     @apply animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600;
+  }
+
+  .loading-spinner-sm {
+    @apply animate-spin rounded-full h-4 w-4 border-b-2 border-white;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .hero {
+    @apply bg-gradient-to-r from-primary-600 to-primary-800 text-white;
+  }
+
+  .feature-card {
+    @apply text-center p-8 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors;
+  }
+
+  .breadcrumb {
+    @apply bg-gray-50 border-b;
+  }
+
+  .nav-link {
+    @apply text-gray-700 hover:text-primary-600 font-medium transition-colors;
+  }
+
+  .nav-link-active {
+    @apply text-primary-600 font-semibold;
+  }
+
+  .sidebar {
+    @apply w-64 bg-white border-r border-gray-200 p-4;
+  }
+
+  .sidebar-nav {
+    @apply space-y-2;
+  }
+
+  .sidebar-link {
+    @apply block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100;
+  }
+
+  .sidebar-link-active {
+    @apply bg-primary-100 text-primary-700;
+  }
+
+  .table {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
+  .table-header {
+    @apply bg-gray-50;
+  }
+
+  .table-header-cell {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+
+  .table-body {
+    @apply bg-white divide-y divide-gray-200;
+  }
+
+  .table-cell {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-900;
+  }
+
+  .table-cell-muted {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-500;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .badge-warning {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+
+  .badge-danger {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .badge-info {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .badge-secondary {
+    @apply bg-gray-100 text-gray-800;
   }
 }
 

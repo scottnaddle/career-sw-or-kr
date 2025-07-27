@@ -10,18 +10,18 @@ export const metadata: Metadata = {
 export default function SignupPage() {
   return (
     <Layout>
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
-          <div className="text-center">
-            <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
+      <div className="auth-container">
+        <div className="auth-form max-w-2xl">
+          <div className="auth-header">
+            <h2 className="auth-title">
               회원가입
             </h2>
-            <p className="mt-2 text-sm text-gray-600">
-              SW기술자 경력관리시스템에 가입하세요
+            <p className="auth-subtitle">
+              SW기술자 경력관리시스템에 가입하여 경력을 체계적으로 관리하세요
             </p>
           </div>
           
-          <div className="bg-white py-8 px-6 shadow rounded-lg">
+          <div className="auth-card">
             <SignupForm />
           </div>
         </div>

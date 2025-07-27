@@ -11,7 +11,11 @@ export default function SignupForm() {
     confirmPassword: '',
     name: '',
     userType: 'individual' as 'individual' | 'corporate',
-    phone: ''
+    phone: '',
+    // 기업회원 추가 필드
+    companyName: '',
+    businessNumber: '',
+    representativeName: ''
   })
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -61,40 +65,33 @@ export default function SignupForm() {
 
   return (
     <div className="signup-form">
-      <h2>회원가입</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="form-group">
-          <label htmlFor="userType">회원 유형</label>
+          <label htmlFor="userType" className="form-label">
+            회원 유형
+          </label>
           <select
             name="userType"
+            className="form-input"
             value={formData.userType}
             onChange={handleChange}
             required
+            disabled={loading}
           >
-            <option value="individual">개인회원</option>
+            <option value="individual">개인회원 (SW기술자)</option>
             <option value="corporate">기업회원</option>
           </select>
         </div>
 
         <div className="form-group">
-          <label htmlFor="name">
-            {formData.userType === 'individual' ? '이름' : '회사명'}
+          <label htmlFor="email" className="form-label">
+            이메일 주소
           </label>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">이메일</label>
           <input
             type="email"
             name="email"
+            className="form-input"
+            placeholder="이메일을 입력하세요"
             value={formData.email}
             onChange={handleChange}
             required
@@ -102,42 +99,128 @@ export default function SignupForm() {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="phone">연락처</label>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            disabled={loading}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              비밀번호
+            </label>
+            <input
+              type="password"
+              name="password"
+              className="form-input"
+              placeholder="8자 이상 입력하세요"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              disabled={loading}
+              minLength={8}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="confirmPassword" className="form-label">
+              비밀번호 확인
+            </label>
+            <input
+              type="password"
+              name="confirmPassword"
+              className="form-input"
+              placeholder="비밀번호를 다시 입력하세요"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="password">비밀번호</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            disabled={loading}
-            minLength={6}
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="form-group">
+            <label htmlFor="name" className="form-label">
+              {formData.userType === 'individual' ? '이름' : '담당자명'}
+            </label>
+            <input
+              type="text"
+              name="name"
+              className="form-input"
+              placeholder={formData.userType === 'individual' ? '이름을 입력하세요' : '담당자명을 입력하세요'}
+              value={formData.name}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="phone" className="form-label">
+              연락처
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              className="form-input"
+              placeholder="010-0000-0000"
+              value={formData.phone}
+              onChange={handleChange}
+              disabled={loading}
+            />
+          </div>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="confirmPassword">비밀번호 확인</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-            disabled={loading}
-            minLength={6}
-          />
-        </div>
+        {/* 기업회원 추가 필드 */}
+        {formData.userType === 'corporate' && (
+          <div className="space-y-4 border-t pt-6">
+            <h3 className="text-lg font-medium text-gray-900">기업 정보</h3>
+            
+            <div className="form-group">
+              <label htmlFor="companyName" className="form-label">
+                회사명 <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                name="companyName"
+                className="form-input"
+                placeholder="회사명을 입력하세요"
+                value={formData.companyName}
+                onChange={handleChange}
+                required
+                disabled={loading}
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="form-group">
+                <label htmlFor="businessNumber" className="form-label">
+                  사업자등록번호
+                </label>
+                <input
+                  type="text"
+                  name="businessNumber"
+                  className="form-input"
+                  placeholder="000-00-00000"
+                  value={formData.businessNumber}
+                  onChange={handleChange}
+                  disabled={loading}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="representativeName" className="form-label">
+                  대표자명
+                </label>
+                <input
+                  type="text"
+                  name="representativeName"
+                  className="form-input"
+                  placeholder="대표자명을 입력하세요"
+                  value={formData.representativeName}
+                  onChange={handleChange}
+                  disabled={loading}
+                />
+              </div>
+            </div>
+          </div>
+        )}
 
         {error && (
           <div className="error-message">
@@ -145,13 +228,31 @@ export default function SignupForm() {
           </div>
         )}
 
-        <button type="submit" disabled={loading}>
-          {loading ? '가입 중...' : '회원가입'}
-        </button>
+        <div className="form-group">
+          <button 
+            type="submit" 
+            disabled={loading}
+            className="btn-primary w-full flex items-center justify-center"
+          >
+            {loading ? (
+              <>
+                <div className="loading-spinner-sm mr-2"></div>
+                가입 중...
+              </>
+            ) : (
+              '회원가입'
+            )}
+          </button>
+        </div>
       </form>
 
       <div className="auth-links">
-        <a href="/auth/login">이미 계정이 있으신가요? 로그인</a>
+        <div className="text-center">
+          <span className="text-gray-600">이미 계정이 있으신가요? </span>
+          <a href="/auth/login" className="auth-link">
+            로그인
+          </a>
+        </div>
       </div>
     </div>
   )

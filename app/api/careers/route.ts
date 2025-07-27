@@ -6,6 +6,8 @@ import { Database } from '@/types/supabase'
 // 경력 목록 조회
 export async function GET(request: NextRequest) {
   const supabase = createRouteHandlerClient<Database>({ cookies })
+  const { searchParams } = new URL(request.url)
+  const limit = searchParams.get('limit')
   
   try {
     // 사용자 인증 확인
@@ -16,11 +18,21 @@ export async function GET(request: NextRequest) {
     }
 
     // 경력 목록 조회
-    const { data: careers, error } = await supabase
+    let query = supabase
       .from('careers')
       .select('*')
       .eq('user_id', user.id)
       .order('created_at', { ascending: false })
+
+    // limit 파라미터가 있으면 적용
+    if (limit) {
+      const limitNumber = parseInt(limit, 10)
+      if (!isNaN(limitNumber) && limitNumber > 0) {
+        query = query.limit(limitNumber)
+      }
+    }
+
+    const { data: careers, error } = await query
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 })
