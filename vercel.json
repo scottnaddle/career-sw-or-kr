@@ -1,0 +1,56 @@
+{
+  "buildCommand": "npm run build",
+  "framework": "nextjs",
+  "regions": ["icn1"],
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "https://career.sw.or.kr"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/career.html",
+      "destination": "/career",
+      "permanent": true
+    },
+    {
+      "source": "/system.html",
+      "destination": "/system",
+      "permanent": true
+    },
+    {
+      "source": "/apply.html", 
+      "destination": "/apply",
+      "permanent": true
+    },
+    {
+      "source": "/news.html",
+      "destination": "/news", 
+      "permanent": true
+    },
+    {
+      "source": "/help.html",
+      "destination": "/help",
+      "permanent": true
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력 관리 - SW기술자 경력관리시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1>SW기술자 경력관리시스템</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="career.html" class="active">경력확인</a></li>
+                    <li><a href="system.html">제도안내</a></li>
+                    <li><a href="apply.html">신청절차</a></li>
+                    <li><a href="news.html">소식·공지</a></li>
+                    <li><a href="help.html">도움말</a></li>
+                </ul>
+            </nav>
+            <div class="login-section">
+                <button class="login-btn">로그인</button>
+                <button class="register-btn">회원가입</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="breadcrumb">
+            <div class="container">
+                <span>홈</span> > <span><a href="career.html">경력확인</a></span> > <span class="current">경력 관리</span>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <h2>경력 관리</h2>
+                <p>등록된 경력 정보를 조회하고 관리하세요</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>경력확인</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="career-dashboard.html">개인 대시보드</a></li>
+                        <li><a href="career-register.html">경력 등록</a></li>
+                        <li><a href="career-manage.html" class="active">경력 관리</a></li>
+                        <li><a href="certificate-issue.html">확인서 발급</a></li>
+                        <li><a href="career-history.html">경력 이력</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="content-panel active">
+                        <div class="panel-header">
+                            <h3>경력 관리</h3>
+                            <p>등록된 경력 정보를 조회하고 관리하세요</p>
+                        </div>
+
+                        <div class="search-bar">
+                            <input type="text" placeholder="회사명 또는 업무 내용으로 검색">
+                            <button class="search-btn">검색</button>
+                        </div>
+
+                        <div class="career-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>회사명</th>
+                                        <th>근무기간</th>
+                                        <th>직급/직책</th>
+                                        <th>업무분야</th>
+                                        <th>상태</th>
+                                        <th>관리</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>(주)테크놀로지</td>
+                                        <td>2023.03 ~ 현재</td>
+                                        <td>선임연구원</td>
+                                        <td>소프트웨어 개발</td>
+                                        <td><span class="status pending">심사중</span></td>
+                                        <td>
+                                            <button class="btn-small">수정</button>
+                                            <button class="btn-small">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>(주)소프트웨어솔루션</td>
+                                        <td>2021.01 ~ 2023.02</td>
+                                        <td>주임연구원</td>
+                                        <td>시스템 분석</td>
+                                        <td><span class="status approved">승인</span></td>
+                                        <td>
+                                            <button class="btn-small">수정</button>
+                                            <button class="btn-small">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>(주)정보시스템</td>
+                                        <td>2019.03 ~ 2020.12</td>
+                                        <td>연구원</td>
+                                        <td>소프트웨어 개발</td>
+                                        <td><span class="status approved">승인</span></td>
+                                        <td>
+                                            <button class="btn-small">수정</button>
+                                            <button class="btn-small">삭제</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="career-summary">
+                            <h4>경력 요약</h4>
+                            <div class="summary-stats">
+                                <div class="summary-item">
+                                    <span class="label">총 경력 기간</span>
+                                    <span class="value">4년 10개월</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">주 업무 분야</span>
+                                    <span class="value">소프트웨어 개발</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="label">최근 회사</span>
+                                    <span class="value">(주)테크놀로지</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SW기술자 경력관리시스템</h4>
+                    <p>주소: 서울특별시 강남구 테헤란로</p>
+                    <p>전화: 02-1234-5678</p>
+                    <p>이메일: info@career.sw.or.kr</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">도움말</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SW기술자 경력관리시스템. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>

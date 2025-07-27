@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력 이력 - SW기술자 경력관리시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1>SW기술자 경력관리시스템</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="career.html" class="active">경력확인</a></li>
+                    <li><a href="system.html">제도안내</a></li>
+                    <li><a href="apply.html">신청절차</a></li>
+                    <li><a href="news.html">소식·공지</a></li>
+                    <li><a href="help.html">도움말</a></li>
+                </ul>
+            </nav>
+            <div class="login-section">
+                <button class="login-btn">로그인</button>
+                <button class="register-btn">회원가입</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="breadcrumb">
+            <div class="container">
+                <span>홈</span> > <span><a href="career.html">경력확인</a></span> > <span class="current">경력 이력</span>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <h2>경력 이력</h2>
+                <p>경력 관련 모든 활동 이력을 확인하세요</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>경력확인</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="career-dashboard.html">개인 대시보드</a></li>
+                        <li><a href="career-register.html">경력 등록</a></li>
+                        <li><a href="career-manage.html">경력 관리</a></li>
+                        <li><a href="certificate-issue.html">확인서 발급</a></li>
+                        <li><a href="career-history.html" class="active">경력 이력</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="content-panel active">
+                        <div class="panel-header">
+                            <h3>경력 이력</h3>
+                            <p>경력 관련 모든 활동 이력을 확인하세요</p>
+                        </div>
+
+                        <div class="history-filter">
+                            <select name="filter-type">
+                                <option value="all">전체</option>
+                                <option value="register">경력 등록</option>
+                                <option value="modify">정보 수정</option>
+                                <option value="certificate">확인서 발급</option>
+                            </select>
+                            <input type="date" name="start-date">
+                            <span>~</span>
+                            <input type="date" name="end-date">
+                            <button class="search-btn">조회</button>
+                        </div>
+
+                        <div class="history-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024.01.20</div>
+                                <div class="timeline-content">
+                                    <h5>경력확인서 발급</h5>
+                                    <p>전체 경력확인서 발급 완료 (취업 목적)</p>
+                                </div>
+                                <div class="timeline-status completed">완료</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024.01.15</div>
+                                <div class="timeline-content">
+                                    <h5>경력 등록 승인</h5>
+                                    <p>(주)테크놀로지 경력 등록이 승인되었습니다</p>
+                                </div>
+                                <div class="timeline-status approved">승인</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024.01.10</div>
+                                <div class="timeline-content">
+                                    <h5>경력 등록 신청</h5>
+                                    <p>(주)테크놀로지 경력 등록 신청</p>
+                                </div>
+                                <div class="timeline-status pending">접수</div>
+                            </div>
+                        </div>
+
+                        <div class="history-statistics">
+                            <h4>활동 통계</h4>
+                            <div class="stats-grid">
+                                <div class="stat-box">
+                                    <span class="stat-label">총 활동 횟수</span>
+                                    <span class="stat-value">15회</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">경력 등록</span>
+                                    <span class="stat-value">3회</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">확인서 발급</span>
+                                    <span class="stat-value">5회</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-label">정보 수정</span>
+                                    <span class="stat-value">7회</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SW기술자 경력관리시스템</h4>
+                    <p>주소: 서울특별시 강남구 테헤란로</p>
+                    <p>전화: 02-1234-5678</p>
+                    <p>이메일: info@career.sw.or.kr</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">도움말</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SW기술자 경력관리시스템. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "name": "sw-career-management",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "supabase:gen-types": "supabase gen types typescript --local > types/supabase.ts",
+    "seed:test-data": "npx tsx scripts/seed-test-data.ts",
+    "test:apis": "npx tsx scripts/test-apis.ts"
+  },
+  "dependencies": {
+    "@supabase/auth-helpers-nextjs": "^0.8.7",
+    "@supabase/auth-helpers-react": "^0.4.2",
+    "@supabase/supabase-js": "^2.39.0",
+    "@types/uuid": "^9.0.7",
+    "dotenv": "^17.2.1",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-hook-form": "^7.48.2",
+    "react-query": "^3.39.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "supabase": "^1.123.4",
+    "tailwindcss": "^3.3.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5"
+  }
+}

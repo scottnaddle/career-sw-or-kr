@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인 대시보드 - SW기술자 경력관리시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1>SW기술자 경력관리시스템</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="career.html" class="active">경력확인</a></li>
+                    <li><a href="system.html">제도안내</a></li>
+                    <li><a href="apply.html">신청절차</a></li>
+                    <li><a href="news.html">소식·공지</a></li>
+                    <li><a href="help.html">도움말</a></li>
+                </ul>
+            </nav>
+            <div class="login-section">
+                <button class="login-btn">로그인</button>
+                <button class="register-btn">회원가입</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="breadcrumb">
+            <div class="container">
+                <span>홈</span> > <span><a href="career.html">경력확인</a></span> > <span class="current">개인 대시보드</span>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <h2>개인 대시보드</h2>
+                <p>회원님의 경력 정보 현황을 한눈에 확인하세요</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>경력확인</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="career-dashboard.html" class="active">개인 대시보드</a></li>
+                        <li><a href="career-register.html">경력 등록</a></li>
+                        <li><a href="career-manage.html">경력 관리</a></li>
+                        <li><a href="certificate-issue.html">확인서 발급</a></li>
+                        <li><a href="career-history.html">경력 이력</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="content-panel active">
+                        <div class="panel-header">
+                            <h3>개인 대시보드</h3>
+                            <p>회원님의 경력 정보 현황을 한눈에 확인하세요</p>
+                        </div>
+
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">📋</div>
+                                <div class="stat-info">
+                                    <h4>등록된 경력</h4>
+                                    <span class="stat-number">3건</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">✅</div>
+                                <div class="stat-info">
+                                    <h4>승인된 경력</h4>
+                                    <span class="stat-number">2건</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⏳</div>
+                                <div class="stat-info">
+                                    <h4>심사중인 경력</h4>
+                                    <span class="stat-number">1건</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">📄</div>
+                                <div class="stat-info">
+                                    <h4>발급된 확인서</h4>
+                                    <span class="stat-number">5건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recent-activities">
+                            <h4>최근 활동</h4>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-date">2024.01.15</div>
+                                    <div class="activity-content">경력확인서 발급 완료</div>
+                                    <div class="activity-status completed">완료</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-date">2024.01.10</div>
+                                    <div class="activity-content">새로운 경력 등록 신청</div>
+                                    <div class="activity-status pending">심사중</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-date">2024.01.05</div>
+                                    <div class="activity-content">경력 정보 수정</div>
+                                    <div class="activity-status completed">완료</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-actions">
+                            <h4>빠른 실행</h4>
+                            <div class="action-buttons">
+                                <a href="career-register.html" class="action-btn primary">
+                                    <div class="action-icon">➕</div>
+                                    <span>경력 등록</span>
+                                </a>
+                                <a href="certificate-issue.html" class="action-btn secondary">
+                                    <div class="action-icon">📄</div>
+                                    <span>확인서 발급</span>
+                                </a>
+                                <a href="career-manage.html" class="action-btn tertiary">
+                                    <div class="action-icon">⚙️</div>
+                                    <span>경력 관리</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SW기술자 경력관리시스템</h4>
+                    <p>주소: 서울특별시 강남구 테헤란로</p>
+                    <p>전화: 02-1234-5678</p>
+                    <p>이메일: info@career.sw.or.kr</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">도움말</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SW기술자 경력관리시스템. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>

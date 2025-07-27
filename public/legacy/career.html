@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력확인 - SW기술자 경력관리시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1>SW기술자 경력관리시스템</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="career.html" class="active">경력확인</a></li>
+                    <li><a href="system.html">제도안내</a></li>
+                    <li><a href="apply.html">신청절차</a></li>
+                    <li><a href="news.html">소식·공지</a></li>
+                    <li><a href="help.html">도움말</a></li>
+                </ul>
+            </nav>
+            <div class="login-section">
+                <button class="login-btn">로그인</button>
+                <button class="register-btn">회원가입</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="breadcrumb">
+            <div class="container">
+                <span>홈</span> > <span class="current">경력확인</span>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <h2>경력확인</h2>
+                <p>SW기술자의 경력을 체계적으로 관리하고 확인하세요</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>경력확인</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="career-dashboard.html" class="active">개인 대시보드</a></li>
+                        <li><a href="career-register.html">경력 등록</a></li>
+                        <li><a href="career-manage.html">경력 관리</a></li>
+                        <li><a href="certificate-issue.html">확인서 발급</a></li>
+                        <li><a href="career-history.html">경력 이력</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div id="dashboard" class="content-panel active">
+                        <div class="panel-header">
+                            <h3>개인 대시보드</h3>
+                            <p>회원님의 경력 정보 현황을 한눈에 확인하세요</p>
+                        </div>
+
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">📋</div>
+                                <div class="stat-info">
+                                    <h4>등록된 경력</h4>
+                                    <span class="stat-number">3건</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">✅</div>
+                                <div class="stat-info">
+                                    <h4>승인된 경력</h4>
+                                    <span class="stat-number">2건</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">⏳</div>
+                                <div class="stat-info">
+                                    <h4>심사중인 경력</h4>
+                                    <span class="stat-number">1건</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">📄</div>
+                                <div class="stat-info">
+                                    <h4>발급된 확인서</h4>
+                                    <span class="stat-number">5건</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="recent-activities">
+                            <h4>최근 활동</h4>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <div class="activity-date">2024.01.15</div>
+                                    <div class="activity-content">경력확인서 발급 완료</div>
+                                    <div class="activity-status completed">완료</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-date">2024.01.10</div>
+                                    <div class="activity-content">새로운 경력 등록 신청</div>
+                                    <div class="activity-status pending">심사중</div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-date">2024.01.05</div>
+                                    <div class="activity-content">경력 정보 수정</div>
+                                    <div class="activity-status completed">완료</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="career-register" class="content-panel">
+                        <div class="panel-header">
+                            <h3>경력 등록</h3>
+                            <p>새로운 SW기술자 경력을 등록하세요</p>
+                        </div>
+
+                        <form class="career-form">
+                            <div class="form-section">
+                                <h4>기본 정보</h4>
+                                <div class="form-group">
+                                    <label for="company">회사명</label>
+                                    <input type="text" id="company" name="company" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="start-date">입사일</label>
+                                        <input type="date" id="start-date" name="start-date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="end-date">퇴사일</label>
+                                        <input type="date" id="end-date" name="end-date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">직급/직책</label>
+                                    <input type="text" id="position" name="position" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h4>업무 내용</h4>
+                                <div class="form-group">
+                                    <label for="job-type">업무 분야</label>
+                                    <select id="job-type" name="job-type" required>
+                                        <option value="">선택하세요</option>
+                                        <option value="development">소프트웨어 개발</option>
+                                        <option value="analysis">시스템 분석</option>
+                                        <option value="design">시스템 설계</option>
+                                        <option value="test">테스팅</option>
+                                        <option value="maintenance">유지보수</option>
+                                        <option value="consulting">컨설팅</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="job-description">상세 업무 내용</label>
+                                    <textarea id="job-description" name="job-description" rows="5" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h4>증빙 서류</h4>
+                                <div class="file-upload-area">
+                                    <div class="file-upload">
+                                        <label for="documents">서류 첨부</label>
+                                        <input type="file" id="documents" name="documents" multiple accept=".pdf,.jpg,.png,.doc,.docx">
+                                        <div class="file-upload-text">
+                                            <span>파일을 선택하거나 드래그하여 업로드하세요</span>
+                                            <small>PDF, 이미지, Word 파일 (최대 10MB)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary">임시저장</button>
+                                <button type="submit" class="btn-primary">등록 신청</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="career-manage" class="content-panel">
+                        <div class="panel-header">
+                            <h3>경력 관리</h3>
+                            <p>등록된 경력 정보를 조회하고 관리하세요</p>
+                        </div>
+
+                        <div class="search-bar">
+                            <input type="text" placeholder="회사명 또는 업무 내용으로 검색">
+                            <button class="search-btn">검색</button>
+                        </div>
+
+                        <div class="career-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>회사명</th>
+                                        <th>근무기간</th>
+                                        <th>직급/직책</th>
+                                        <th>업무분야</th>
+                                        <th>상태</th>
+                                        <th>관리</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>(주)테크놀로지</td>
+                                        <td>2023.03 ~ 현재</td>
+                                        <td>선임연구원</td>
+                                        <td>소프트웨어 개발</td>
+                                        <td><span class="status pending">심사중</span></td>
+                                        <td>
+                                            <button class="btn-small">수정</button>
+                                            <button class="btn-small">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>(주)소프트웨어솔루션</td>
+                                        <td>2021.01 ~ 2023.02</td>
+                                        <td>주임연구원</td>
+                                        <td>시스템 분석</td>
+                                        <td><span class="status approved">승인</span></td>
+                                        <td>
+                                            <button class="btn-small">수정</button>
+                                            <button class="btn-small">삭제</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>(주)정보시스템</td>
+                                        <td>2019.03 ~ 2020.12</td>
+                                        <td>연구원</td>
+                                        <td>소프트웨어 개발</td>
+                                        <td><span class="status approved">승인</span></td>
+                                        <td>
+                                            <button class="btn-small">수정</button>
+                                            <button class="btn-small">삭제</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div id="certificate-issue" class="content-panel">
+                        <div class="panel-header">
+                            <h3>확인서 발급</h3>
+                            <p>경력확인서를 발급받으세요</p>
+                        </div>
+
+                        <div class="certificate-options">
+                            <div class="certificate-type">
+                                <h4>발급 유형 선택</h4>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="cert-type" value="total">
+                                        <span>전체 경력확인서</span>
+                                        <small>승인된 모든 경력 정보가 포함됩니다</small>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="cert-type" value="partial">
+                                        <span>선택 경력확인서</span>
+                                        <small>원하는 경력만 선택하여 발급됩니다</small>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="certificate-purpose">
+                                <h4>발급 목적</h4>
+                                <select name="purpose">
+                                    <option value="">선택하세요</option>
+                                    <option value="job">취업</option>
+                                    <option value="promotion">승진</option>
+                                    <option value="project">프로젝트 참여</option>
+                                    <option value="other">기타</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="certificate-preview">
+                            <h4>발급 정보 미리보기</h4>
+                            <div class="preview-box">
+                                <div class="preview-header">
+                                    <h5>SW기술자 경력확인서</h5>
+                                    <span>발급일: 2024.01.20</span>
+                                </div>
+                                <div class="preview-content">
+                                    <p><strong>성명:</strong> 홍길동</p>
+                                    <p><strong>생년월일:</strong> 1990.01.01</p>
+                                    <p><strong>총 경력기간:</strong> 4년 10개월</p>
+                                    <p><strong>경력 건수:</strong> 2건 (승인된 경력 기준)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary">미리보기</button>
+                            <button type="button" class="btn-primary">발급 신청</button>
+                        </div>
+                    </div>
+
+                    <div id="career-history" class="content-panel">
+                        <div class="panel-header">
+                            <h3>경력 이력</h3>
+                            <p>경력 관련 모든 활동 이력을 확인하세요</p>
+                        </div>
+
+                        <div class="history-filter">
+                            <select name="filter-type">
+                                <option value="all">전체</option>
+                                <option value="register">경력 등록</option>
+                                <option value="modify">정보 수정</option>
+                                <option value="certificate">확인서 발급</option>
+                            </select>
+                            <input type="date" name="start-date">
+                            <span>~</span>
+                            <input type="date" name="end-date">
+                            <button class="search-btn">조회</button>
+                        </div>
+
+                        <div class="history-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024.01.20</div>
+                                <div class="timeline-content">
+                                    <h5>경력확인서 발급</h5>
+                                    <p>전체 경력확인서 발급 완료 (취업 목적)</p>
+                                </div>
+                                <div class="timeline-status completed">완료</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024.01.15</div>
+                                <div class="timeline-content">
+                                    <h5>경력 등록 승인</h5>
+                                    <p>(주)테크놀로지 경력 등록이 승인되었습니다</p>
+                                </div>
+                                <div class="timeline-status approved">승인</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024.01.10</div>
+                                <div class="timeline-content">
+                                    <h5>경력 등록 신청</h5>
+                                    <p>(주)테크놀로지 경력 등록 신청</p>
+                                </div>
+                                <div class="timeline-status pending">접수</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SW기술자 경력관리시스템</h4>
+                    <p>주소: 서울특별시 강남구 테헤란로</p>
+                    <p>전화: 02-1234-5678</p>
+                    <p>이메일: info@career.sw.or.kr</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">도움말</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SW기술자 경력관리시스템. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>

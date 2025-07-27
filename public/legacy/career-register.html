@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경력 등록 - SW기술자 경력관리시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1>SW기술자 경력관리시스템</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="career.html" class="active">경력확인</a></li>
+                    <li><a href="system.html">제도안내</a></li>
+                    <li><a href="apply.html">신청절차</a></li>
+                    <li><a href="news.html">소식·공지</a></li>
+                    <li><a href="help.html">도움말</a></li>
+                </ul>
+            </nav>
+            <div class="login-section">
+                <button class="login-btn">로그인</button>
+                <button class="register-btn">회원가입</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="breadcrumb">
+            <div class="container">
+                <span>홈</span> > <span><a href="career.html">경력확인</a></span> > <span class="current">경력 등록</span>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <h2>경력 등록</h2>
+                <p>새로운 SW기술자 경력을 등록하세요</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>경력확인</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="career-dashboard.html">개인 대시보드</a></li>
+                        <li><a href="career-register.html" class="active">경력 등록</a></li>
+                        <li><a href="career-manage.html">경력 관리</a></li>
+                        <li><a href="certificate-issue.html">확인서 발급</a></li>
+                        <li><a href="career-history.html">경력 이력</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="content-panel active">
+                        <div class="panel-header">
+                            <h3>경력 등록</h3>
+                            <p>새로운 SW기술자 경력을 등록하세요</p>
+                        </div>
+
+                        <form class="career-form">
+                            <div class="form-section">
+                                <h4>기본 정보</h4>
+                                <div class="form-group">
+                                    <label for="company">회사명</label>
+                                    <input type="text" id="company" name="company" required>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="start-date">입사일</label>
+                                        <input type="date" id="start-date" name="start-date" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="end-date">퇴사일</label>
+                                        <input type="date" id="end-date" name="end-date">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="position">직급/직책</label>
+                                    <input type="text" id="position" name="position" required>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h4>업무 내용</h4>
+                                <div class="form-group">
+                                    <label for="job-type">업무 분야</label>
+                                    <select id="job-type" name="job-type" required>
+                                        <option value="">선택하세요</option>
+                                        <option value="development">소프트웨어 개발</option>
+                                        <option value="analysis">시스템 분석</option>
+                                        <option value="design">시스템 설계</option>
+                                        <option value="test">테스팅</option>
+                                        <option value="maintenance">유지보수</option>
+                                        <option value="consulting">컨설팅</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="job-description">상세 업무 내용</label>
+                                    <textarea id="job-description" name="job-description" rows="5" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h4>증빙 서류</h4>
+                                <div class="file-upload-area">
+                                    <div class="file-upload">
+                                        <label for="documents">서류 첨부</label>
+                                        <input type="file" id="documents" name="documents" multiple accept=".pdf,.jpg,.png,.doc,.docx">
+                                        <div class="file-upload-text">
+                                            <span>파일을 선택하거나 드래그하여 업로드하세요</span>
+                                            <small>PDF, 이미지, Word 파일 (최대 10MB)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary">임시저장</button>
+                                <button type="submit" class="btn-primary">등록 신청</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SW기술자 경력관리시스템</h4>
+                    <p>주소: 서울특별시 강남구 테헤란로</p>
+                    <p>전화: 02-1234-5678</p>
+                    <p>이메일: info@career.sw.or.kr</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">도움말</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SW기술자 경력관리시스템. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>

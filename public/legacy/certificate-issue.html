@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>확인서 발급 - SW기술자 경력관리시스템</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subpage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><h1>SW기술자 경력관리시스템</h1></a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="career.html" class="active">경력확인</a></li>
+                    <li><a href="system.html">제도안내</a></li>
+                    <li><a href="apply.html">신청절차</a></li>
+                    <li><a href="news.html">소식·공지</a></li>
+                    <li><a href="help.html">도움말</a></li>
+                </ul>
+            </nav>
+            <div class="login-section">
+                <button class="login-btn">로그인</button>
+                <button class="register-btn">회원가입</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="breadcrumb">
+            <div class="container">
+                <span>홈</span> > <span><a href="career.html">경력확인</a></span> > <span class="current">확인서 발급</span>
+            </div>
+        </div>
+
+        <section class="page-header">
+            <div class="container">
+                <h2>확인서 발급</h2>
+                <p>경력확인서를 발급받으세요</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="sidebar">
+                    <h3>경력확인</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="career-dashboard.html">개인 대시보드</a></li>
+                        <li><a href="career-register.html">경력 등록</a></li>
+                        <li><a href="career-manage.html">경력 관리</a></li>
+                        <li><a href="certificate-issue.html" class="active">확인서 발급</a></li>
+                        <li><a href="career-history.html">경력 이력</a></li>
+                    </ul>
+                </div>
+
+                <div class="main-content">
+                    <div class="content-panel active">
+                        <div class="panel-header">
+                            <h3>확인서 발급</h3>
+                            <p>경력확인서를 발급받으세요</p>
+                        </div>
+
+                        <div class="certificate-options">
+                            <div class="certificate-type">
+                                <h4>발급 유형 선택</h4>
+                                <div class="radio-group">
+                                    <label class="radio-option">
+                                        <input type="radio" name="cert-type" value="total">
+                                        <span>전체 경력확인서</span>
+                                        <small>승인된 모든 경력 정보가 포함됩니다</small>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="cert-type" value="partial">
+                                        <span>선택 경력확인서</span>
+                                        <small>원하는 경력만 선택하여 발급됩니다</small>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="certificate-purpose">
+                                <h4>발급 목적</h4>
+                                <select name="purpose">
+                                    <option value="">선택하세요</option>
+                                    <option value="job">취업</option>
+                                    <option value="promotion">승진</option>
+                                    <option value="project">프로젝트 참여</option>
+                                    <option value="other">기타</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="certificate-preview">
+                            <h4>발급 정보 미리보기</h4>
+                            <div class="preview-box">
+                                <div class="preview-header">
+                                    <h5>SW기술자 경력확인서</h5>
+                                    <span>발급일: 2024.01.20</span>
+                                </div>
+                                <div class="preview-content">
+                                    <p><strong>성명:</strong> 홍길동</p>
+                                    <p><strong>생년월일:</strong> 1990.01.01</p>
+                                    <p><strong>총 경력기간:</strong> 4년 10개월</p>
+                                    <p><strong>경력 건수:</strong> 2건 (승인된 경력 기준)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="certificate-fees">
+                            <h4>발급 수수료</h4>
+                            <div class="fee-info">
+                                <div class="fee-item">
+                                    <span>기본 경력확인서</span>
+                                    <span class="fee">2,000원</span>
+                                    <small>(첫 1매 무료)</small>
+                                </div>
+                                <div class="fee-item">
+                                    <span>영문 경력확인서</span>
+                                    <span class="fee">5,000원</span>
+                                    <small>(1-2일 소요)</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary">미리보기</button>
+                            <button type="button" class="btn-primary">발급 신청</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>SW기술자 경력관리시스템</h4>
+                    <p>주소: 서울특별시 강남구 테헤란로</p>
+                    <p>전화: 02-1234-5678</p>
+                    <p>이메일: info@career.sw.or.kr</p>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">사이트맵</a></li>
+                        <li><a href="#">도움말</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SW기술자 경력관리시스템. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="career.js"></script>
+</body>
+</html>
