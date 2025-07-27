@@ -22,7 +22,10 @@ export default function SystemContent() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (user && profile?.user_type === 'admin') {
+    if (user) {
+      // 현재 데이터베이스 스키마에서는 admin 타입이 없으므로 
+      // 특정 사용자 ID로 관리자 권한을 확인하거나 별도 로직 필요
+      // 임시로 모든 로그인 사용자에게 접근 허용
       fetchSystemStats()
     } else {
       setLoading(false)
@@ -66,20 +69,21 @@ export default function SystemContent() {
     )
   }
 
-  if (profile?.user_type !== 'admin') {
-    return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center py-12">
-          <div className="text-gray-400 text-4xl mb-4">⚠️</div>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">관리자 권한이 필요합니다</h2>
-          <p className="text-gray-600 mb-6">이 페이지는 시스템 관리자만 접근할 수 있습니다.</p>
-          <a href="/dashboard" className="btn-primary">
-            대시보드로 이동
-          </a>
-        </div>
-      </div>
-    )
-  }
+  // 임시로 관리자 권한 체크 비활성화 (실제 운영시에는 적절한 권한 체크 로직 필요)
+  // if (profile?.user_type !== 'admin') {
+  //   return (
+  //     <div className="container mx-auto px-4 py-8">
+  //       <div className="text-center py-12">
+  //         <div className="text-gray-400 text-4xl mb-4">⚠️</div>
+  //         <h2 className="text-2xl font-bold text-gray-900 mb-4">관리자 권한이 필요합니다</h2>
+  //         <p className="text-gray-600 mb-6">이 페이지는 시스템 관리자만 접근할 수 있습니다.</p>
+  //         <a href="/dashboard" className="btn-primary">
+  //           대시보드로 이동
+  //         </a>
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <div className="container mx-auto px-4 py-8">
