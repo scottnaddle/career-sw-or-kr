@@ -3,6 +3,9 @@ import { cookies } from 'next/headers'
 import { NextRequest, NextResponse } from 'next/server'
 import { Database } from '@/types/supabase'
 
+// Force dynamic behavior to prevent static generation
+export const dynamic = 'force-dynamic'
+
 // 공지사항 목록 조회
 export async function GET(request: NextRequest) {
   const supabase = createRouteHandlerClient<Database>({ cookies })
